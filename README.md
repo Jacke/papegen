@@ -1,1 +1,1 @@
-# papegen
+# Generator of paper forms

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="papegen"
+		module="papegen_2.12"
+		revision="1.0-SNAPSHOT"
+		status="integration"
+		publication="20180226031808"
+	>
+		<description>
+		papegen
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		<conf name="compile-internal" visibility="private" description="" extends="compile,optional,provided"/>
+		<conf name="runtime-internal" visibility="private" description="" extends="runtime,optional"/>
+		<conf name="test-internal" visibility="private" description="" extends="test,optional,provided"/>
+		<conf name="plugin" visibility="private" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		<conf name="scala-tool" visibility="private" description=""/>
+	</configurations>
+	<publications>
+		<artifact name="papegen_2.12" type="pom" ext="pom" conf="pom"/>
+		<artifact name="papegen_2.12" type="jar" ext="jar" conf="compile"/>
+		<artifact name="papegen_2.12" type="src" ext="jar" conf="compile" e:classifier="sources"/>
+		<artifact name="papegen_2.12" type="doc" ext="jar" conf="compile" e:classifier="javadoc"/>
+	</publications>
+	<dependencies>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.3" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.12.3" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.wartremover" name="wartremover_2.12" rev="2.2.1" conf="plugin->default(compile)"/>
+		<dependency org="com.mohiva" name="play-silhouette_2.12" rev="5.0.0" conf="compile->default(compile)"/>
+		<dependency org="com.mohiva" name="play-silhouette-password-bcrypt_2.12" rev="5.0.0" conf="compile->default(compile)"/>
+		<dependency org="com.mohiva" name="play-silhouette-persistence_2.12" rev="5.0.0" conf="compile->default(compile)"/>
+		<dependency org="com.mohiva" name="play-silhouette-crypto-jca_2.12" rev="5.0.0" conf="compile->default(compile)"/>
+		<dependency org="org.webjars" name="webjars-play_2.12" rev="2.6.1" conf="compile->default(compile)"/>
+		<dependency org="org.webjars" name="bootstrap" rev="3.3.7-1" conf="compile->default(compile)">
+			<exclude org="org.webjars" module="jquery" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="org.webjars" name="jquery" rev="3.2.1" conf="compile->default(compile)"/>
+		<dependency org="net.codingwell" name="scala-guice_2.12" rev="4.1.0" conf="compile->default(compile)"/>
+		<dependency org="com.iheart" name="ficus_2.12" rev="1.4.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-mailer_2.12" rev="6.0.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-mailer-guice_2.12" rev="6.0.1" conf="compile->default(compile)"/>
+		<dependency org="com.enragedginger" name="akka-quartz-scheduler_2.12" rev="1.6.1-akka-2.5.x" conf="compile->default(compile)"/>
+		<dependency org="com.adrianhurt" name="play-bootstrap_2.12" rev="1.2-P26-B3" conf="compile->default(compile)"/>
+		<dependency org="org.scalaj" name="scalaj-http_2.12" rev="2.3.0" conf="compile->default(compile)"/>
+		<dependency org="org.typelevel" name="cats-effect_2.12" rev="0.5" conf="compile->default(compile)"/>
+		<dependency org="org.atnos" name="eff_2.12" rev="4.5.0" conf="compile->default(compile)"/>
+		<dependency org="org.postgresql" name="postgresql" rev="9.4-1201-jdbc41" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-slick_2.12" rev="3.0.0" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-json_2.12" rev="2.6.7" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-json-joda_2.12" rev="2.6.7" conf="compile->default(compile)"/>
+		<dependency org="com.github.tototoshi" name="slick-joda-mapper_2.12" rev="2.3.0" conf="compile->default(compile)"/>
+		<dependency org="ai.x" name="play-json-extensions_2.12" rev="0.10.0" conf="compile->default(compile)"/>
+		<dependency org="com.github.spullara.mustache.java" name="compiler" rev="0.8.14" conf="compile->default(compile)"/>
+		<dependency org="pl.jsolve" name="templ4docx" rev="2.0.0" conf="compile->default(compile)"/>
+		<dependency org="org.wickedsource" name="docx-stamper" rev="1.0.1" conf="compile->default(compile)"/>
+		<dependency org="org.docx4j" name="docx4j" rev="3.0.0" conf="compile->default(compile)"/>
+		<dependency org="com.lowagie" name="itext" rev="2.1.7" conf="compile->default(compile)"/>
+		<dependency org="org.typelevel" name="cats-effect-laws_2.12" rev="0.5" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-specs2_2.12" rev="2.6.10" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-guice_2.12" rev="2.6.10" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="filters-helpers_2.12" rev="2.6.10" conf="compile->default(compile)"/>
+		<dependency org="info.folone" name="poi-scala_2.12" rev="0.18" conf="compile->default(compile)"/>
+		<dependency org="com.norbitltd" name="spoiwo" rev="1.0.6" conf="compile->default(compile)"/>
+		<dependency org="javax.media" name="jai-core" rev="1.1.3" conf="compile->default(compile)"/>
+		<dependency org="com.sun.media" name="jai-codec" rev="1.1.3" conf="compile->default(compile)"/>
+		<dependency org="com.twelvemonkeys.imageio" name="imageio-core" rev="3.2.1" conf="compile->default(compile)"/>
+		<dependency org="org.geotoolkit" name="geotk-coverageio" rev="3.17" conf="compile->default(compile)"/>
+		<dependency org="com.github.jai-imageio" name="jai-imageio-core" rev="1.3.0" conf="compile->default(compile)"/>
+		<dependency org="com.twelvemonkeys.imageio" name="imageio-tiff" rev="3.2.1" conf="compile->default(compile)"/>
+		<dependency org="io.sentry" name="sentry" rev="1.6.7" conf="compile->default(compile)"/>
+		<dependency org="com.github.dragon66" name="icafe" rev="1.1-SNAPSHOT" conf="compile->default(compile)"/>
+		<dependency org="org.spire-math" name="kind-projector_2.12" rev="0.9.4" conf="plugin->default(compile)"/>
+	</dependencies>
+</ivy-module>
